@@ -1,0 +1,295 @@
+[
+    {
+        "label": "pygame",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pygame",
+        "description": "pygame",
+        "detail": "pygame",
+        "documentation": {}
+    },
+    {
+        "label": "Spaceship",
+        "importPath": "game.components.spaceship",
+        "description": "game.components.spaceship",
+        "isExtraImport": true,
+        "detail": "game.components.spaceship",
+        "documentation": {}
+    },
+    {
+        "label": "BG",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ICON",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_HEIGHT",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_WIDTH",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "TITLE",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "FPS",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TYPE",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_WIDTH",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_HEIGHT",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SPACESHIP",
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "isExtraImport": true,
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "Sprite",
+        "importPath": "pygame.sprite",
+        "description": "pygame.sprite",
+        "isExtraImport": true,
+        "detail": "pygame.sprite",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Game",
+        "importPath": "game.components.game",
+        "description": "game.components.game",
+        "isExtraImport": true,
+        "detail": "game.components.game",
+        "documentation": {}
+    },
+    {
+        "label": "Game",
+        "kind": 6,
+        "importPath": "game.components.game",
+        "description": "game.components.game",
+        "peekOfCode": "class Game:\n    def __init__(self):\n        pygame.init()\n        pygame.display.set_caption(TITLE)\n        pygame.display.set_icon(ICON)\n        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))\n        self.clock = pygame.time.Clock()\n        self.playing = False\n        self.game_speed = 10\n        self.x_pos_bg = 0",
+        "detail": "game.components.game",
+        "documentation": {}
+    },
+    {
+        "label": "Spaceship",
+        "kind": 6,
+        "importPath": "game.components.spaceship",
+        "description": "game.components.spaceship",
+        "peekOfCode": "class Spaceship(Sprite):\n    X_POS = (SCREEN_WIDTH // 2) - 30 \n    Y_POS = 500\n    def __init__(self):\n        self.image = pygame.transform.scale(SPACESHIP, (60, 50))\n        self.rect = self.image.get_rect()\n        self.rect.x = self.X_POS\n        self.rect.y = self.Y_POS    \n    def update(self, user_input):\n        if user_input[pygame.K_LEFT] or user_input[pygame.K_a]:",
+        "detail": "game.components.spaceship",
+        "documentation": {}
+    },
+    {
+        "label": "TITLE",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "TITLE = \"Spaceships Game\"\nSCREEN_HEIGHT = 600\nSCREEN_WIDTH = 1100\nFPS = 30\nIMG_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"assets\")\n# Assets Constants\nICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_HEIGHT",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SCREEN_HEIGHT = 600\nSCREEN_WIDTH = 1100\nFPS = 30\nIMG_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"assets\")\n# Assets Constants\nICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_WIDTH",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SCREEN_WIDTH = 1100\nFPS = 30\nIMG_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"assets\")\n# Assets Constants\nICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "FPS",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "FPS = 30\nIMG_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"assets\")\n# Assets Constants\nICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "IMG_DIR",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "IMG_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"assets\")\n# Assets Constants\nICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ICON",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "ICON = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SHIELD",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))\nBG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "BG",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))\nHEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "HEART",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))\nDEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_TYPE",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "DEFAULT_TYPE = \"default\"\nSHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SHIELD_TYPE",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SHIELD_TYPE = 'shield'\nSPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SPACESHIP",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SPACESHIP = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship.png\"))\nSPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "SPACESHIP_SHIELD",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "SPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, \"Spaceship/spaceship_shield.png\"))\nBULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "BULLET",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "BULLET = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_1.png\"))\nBULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "BULLET_ENEMY",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "BULLET_ENEMY = pygame.image.load(os.path.join(IMG_DIR, \"Bullet/bullet_2.png\"))\nENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "ENEMY_1",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "ENEMY_1 = pygame.image.load(os.path.join(IMG_DIR, \"Enemy/enemy_1.png\"))\nFONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    },
+    {
+        "label": "FONT_STYLE",
+        "kind": 5,
+        "importPath": "game.utils.constants",
+        "description": "game.utils.constants",
+        "peekOfCode": "FONT_STYLE = 'freesansbold.ttf'",
+        "detail": "game.utils.constants",
+        "documentation": {}
+    }
+]
