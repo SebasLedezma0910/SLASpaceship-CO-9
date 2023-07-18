@@ -21,6 +21,7 @@ DEFAULT_TYPE = "default"
 SHIELD_TYPE = 'shield'
 ENEMY_TYPE = 'enemy'
 
+
 SPACESHIP = pygame.image.load(os.path.join(IMG_DIR, "Spaceship/spaceship.png"))
 SPACESHIP_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Spaceship/spaceship_shield.png"))
 BULLET = pygame.image.load(os.path.join(IMG_DIR, "Bullet/bullet_1.png"))

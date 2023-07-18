@@ -13,7 +13,7 @@ class Spaceship(Sprite):
         self.rect.x = self.X_POS
         self.rect.y = self.Y_POS  
 
-        self.shooting_time = 0 
+        self.shooting_time = random.randint(30, 50) 
 
     def update(self, user_input, bullet_manager):
         

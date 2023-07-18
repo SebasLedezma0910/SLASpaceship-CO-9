@@ -20,13 +20,14 @@ class Bullet_Manager():
 
         for bullet in self.player_bullets:
             bullet.update(self.player_bullets)
-            if bullet.rect.colliderect(game.enemy_manager.rect):
-                self.player_bullets.remove(bullet)
-                game.playin = True
-                pygame.time.delay(500)
+            for enemy in game.enemy_manager.enemies:
+                if bullet.rect.colliderect(enemy.rect):
+                    self.player_bullets.remove(bullet)
+                    game.playing = True
+                    pygame.time.delay(500)
 
     def draw(self, screen):
-        for bullet in self.enemy_bullets or self.player_bullets:
+        for bullet in self.enemy_bullets + self.player_bullets:
             bullet.draw(screen)
 
     def add_bullet(self, spaceship):
