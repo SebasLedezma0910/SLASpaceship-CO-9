@@ -6,13 +6,13 @@ class Enemy_Manager():
     def __init__(self):
         self.enemies = []
 
-    def update(self):
+    def update(self, game):
         if not self.enemies:
-            choose_enemy= random.choice([Enemy, Enemy_2])
+            choose_enemy = random.choice([Enemy, Enemy_2])
             self.enemies.append(choose_enemy())
             
         for enemy in self.enemies:
-            enemy.update(self.enemies)
+            enemy.update(self.enemies, game.bullet_manager)
 
     def draw(self, screen):
         for enemy in self.enemies:
