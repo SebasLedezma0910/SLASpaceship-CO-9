@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 from game.utils.constants import BULLET_ENEMY, ENEMY_TYPE, SCREEN_HEIGHT
 
 class Bullet(Sprite):
-    SPEED = 40
+    SPEED = 20
     BULLETS = {ENEMY_TYPE: BULLET_ENEMY}
 
     def __init__(self, spaceship):
