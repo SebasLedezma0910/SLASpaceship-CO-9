@@ -1,10 +1,10 @@
 import pygame
 from pygame.sprite import  Sprite
 
-from game.utils.constants import BULLET, SCREEN_HEIGHT, SPACESHIP
+from game.utils.constants import BULLET, SPACESHIP
 
 class Player_Bullet(Sprite):
-    SPEED = 40
+    SPEED = 100
 
     def __init__(self, spaceship):
         self.owner = spaceship.type

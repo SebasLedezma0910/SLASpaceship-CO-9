@@ -24,9 +24,11 @@ class Game:
         self.enemy_manager = Enemy_Manager()
         self.bullet_manager = Bullet_Manager()
 
-        self.menu = Menu('Press any key to Enter...')
+        self.menu = Menu('Press any key to Enter...', ' ', ' ')
         self.score = 0
         self.death_count = 0 
+        self.previous_score = []
+
 
     def run(self):
         # Game loop: events - update - draw
@@ -65,6 +67,7 @@ class Game:
         self.enemy_manager.draw(self.screen)
         self.bullet_manager.draw(self.screen)
         self.draw_score()
+        self.draw_death_count()
         pygame.display.update()
         pygame.display.flip()
 
@@ -85,10 +88,32 @@ class Game:
         text_rect.center = (1000, 50)
         self.screen.blit(text, text_rect)
 
+    def draw_death_count(self):
+        font = pygame.font.Font(FONT_STYLE, 22)
+        text = font.render(f"Death_count: {self.death_count}", True, (255, 0, 0))
+        text_rect = text.get_rect()
+        text_rect.center = (1000, 80)
+        self.screen.blit(text, text_rect)
+
     def show_menu(self):
         self.menu.draw(self.screen)
         self.menu.events(self.on_close, self.play)
+        
+        if self.death_count > 0:
+            self.menu.summary_message1(f"Death_count: {self.death_count}")
+        
+        if self.score > 0: 
+            self.menu.summary_message2(f"Score: {self.score}")
 
+    def show_menu2(self):
+        self.menu.draw(self.screen)
+        if self.previous_score:
+            max_score = max(self.previous_score)
+            if self.score > max_score:
+                self.menu.update_message(f"Score: {self.score}")
+            else:
+                self.menu.update_message(f"Maximum Score: {max_score}")
+        
     def on_close(self):
         self.playing = False
         self.running = False

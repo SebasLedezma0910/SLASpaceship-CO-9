@@ -26,7 +26,7 @@ class Enemy(Sprite):
         self.move_x = random.randint(30, 100)
         self.moving_index = 0
 
-        self.shooting_time = random.randint(30, 50)
+        self.shooting_time = 10
 
     def update(self, enemies, bullet_manager):
         self.shoot(bullet_manager)
