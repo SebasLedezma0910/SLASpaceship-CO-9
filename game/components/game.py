@@ -27,7 +27,7 @@ class Game:
         self.menu = Menu('Press any key to Enter...', ' ', ' ')
         self.score = 0
         self.death_count = 0 
-        self.previous_score = []
+        self.max_score = []
 
 
     def run(self):
@@ -47,6 +47,8 @@ class Game:
             self.events()
             self.update()
             self.draw()
+        
+        self.max_score.append(self.score)
 
     def events(self):
         for event in pygame.event.get():
@@ -101,19 +103,12 @@ class Game:
         
         if self.death_count > 0:
             self.menu.summary_message1(f"Death_count: {self.death_count}")
-        
-        if self.score > 0: 
             self.menu.summary_message2(f"Score: {self.score}")
-
-    def show_menu2(self):
-        self.menu.draw(self.screen)
-        if self.previous_score:
-            max_score = max(self.previous_score)
-            if self.score > max_score:
-                self.menu.update_message(f"Score: {self.score}")
-            else:
-                self.menu.update_message(f"Maximum Score: {max_score}")
         
+        if self.max_score:
+            max_score = max(self.max_score)
+            self.menu.update_message(f"Max Score: {max_score}")
+
     def on_close(self):
         self.playing = False
         self.running = False
