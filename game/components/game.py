@@ -2,6 +2,7 @@ import pygame
 from game.components.bullets.bullet_manager import Bullet_Manager
 from game.components.enemies.enemy_manager import Enemy_Manager
 from game.components.menu import Menu
+from game.components.power_ups.powerup_manager import PowerUpManager
 
 from game.components.spaceship import Spaceship
 
@@ -23,6 +24,7 @@ class Game:
         self.player = Spaceship()
         self.enemy_manager = Enemy_Manager()
         self.bullet_manager = Bullet_Manager()
+        self.power_up_manager = PowerUpManager()
 
         self.menu = Menu('Press any key to Enter...', ' ', ' ')
         self.score = 0
@@ -60,14 +62,17 @@ class Game:
         self.player.update(user_input, self.bullet_manager)
         self.enemy_manager.update(self)
         self.bullet_manager.update(self)
+        self.power_up_manager.update(self)
 
     def draw(self):
         self.clock.tick(FPS)
         self.screen.fill((255, 255, 255))
         self.draw_background()
         self.player.draw(self.screen)
+        self.player.draw_power_up(self.screen)
         self.enemy_manager.draw(self.screen)
         self.bullet_manager.draw(self.screen)
+        self.power_up_manager.draw(self.screen)
         self.draw_score()
         self.draw_death_count()
         pygame.display.update()
@@ -112,3 +117,6 @@ class Game:
     def on_close(self):
         self.playing = False
         self.running = False
+
+    def reset(self):
+        self.power_up_manager.reset()
