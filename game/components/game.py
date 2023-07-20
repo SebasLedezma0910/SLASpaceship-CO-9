@@ -70,6 +70,7 @@ class Game:
         self.draw_background()
         self.player.draw(self.screen)
         self.player.draw_power_up(self.screen)
+        self.player.draw_power_up2(self.screen)
         self.enemy_manager.draw(self.screen)
         self.bullet_manager.draw(self.screen)
         self.power_up_manager.draw(self.screen)

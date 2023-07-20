@@ -12,8 +12,12 @@ class Spaceship(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.X_POS
         self.rect.y = self.Y_POS 
+
         self.power_up_type = DEFAULT_TYPE
-        self.power_up_time_up = 0    
+        self.power_up_time_up = 0 
+
+        self.power_up_type2 = DEFAULT_TYPE
+        self.power_up_time_up2 = 0  
 
         self.shooting_time = random.randint(30, 50) 
 
@@ -71,8 +75,26 @@ class Spaceship(Sprite):
         self.image = pygame.transform.scale(image, (60, 50))
         self.power_up_time_up = time_up
         self.power_up_type = type
+    
+    def on_pick_power_up2(self, time_up, type, image2):
+        self.image = pygame.transform.scale(image2, (70, 60))
+        self.power_up_time_up2 = time_up
+        self.power_up_type2 = type
 
     def draw_power_up(self, screen):
+        if self.power_up_type != DEFAULT_TYPE:
+            time_left = round((self.power_up_time_up - pygame.time.get_ticks()) / 1000, 2)
+            if time_left >= 0:
+                font = pygame.font.Font(FONT_STYLE, 22)
+                text = font.render(f"{self.power_up_type.capitalize()} is enabled for {time_left}", True, (255, 0, 255))
+                text_rect = text.get_rect()
+                text_rect.center = (150, 50)
+                screen.blit(text, text_rect)
+            else:
+                self.power_up_type = DEFAULT_TYPE
+                self.image = pygame.transform.scale(SPACESHIP, (60, 50))
+
+    def draw_power_up2(self, screen):
         if self.power_up_type != DEFAULT_TYPE:
             time_left = round((self.power_up_time_up - pygame.time.get_ticks()) / 1000, 2)
             if time_left >= 0:
