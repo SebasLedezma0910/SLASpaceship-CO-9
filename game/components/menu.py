@@ -7,7 +7,7 @@ class Menu:
     HALF_SCREEN_HEIGHT = SCREEN_HEIGHT // 2
     HALF_SCREEN_WIDTH = SCREEN_WIDTH // 2
 
-    def __init__(self, message, summary1, summary2):
+    def __init__(self, message, summary1, summary2, summary3):
         self.font = pygame.font.Font(FONT_STYLE, 30)
         self.icon = pygame.transform.scale(ICON, (120, 80))
         self.icon_rect = self.icon.get_rect()
@@ -15,6 +15,7 @@ class Menu:
         self.update_message(message)
         self.summary_message1(summary1)
         self.summary_message2(summary2)
+        self.summary_message3(summary3)
         
     def events(self, on_close, on_start):
         for event in pygame.event.get():
@@ -25,11 +26,12 @@ class Menu:
                     on_start()
 
     def draw(self, screen):
-        screen.fill((255, 255, 255))
+        screen.fill((0, 255, 255))
         screen.blit(self.text, self.text_rect)
         screen.blit(self.icon ,self.icon_rect)
         screen.blit(self.textSummary1, self.textSummary1_rect)
         screen.blit(self.textSummary2, self.textSummary2_rect)
+        screen.blit(self.textSummary3, self.textSummary3_rect)
         pygame.display.flip()
 
     def update_message(self, message):
@@ -49,4 +51,10 @@ class Menu:
         self.textSummary2 = self.font.render(self.summaryMessage2, True, (0, 0, 255))
         self.textSummary2_rect = self.text.get_rect()
         self.textSummary2_rect.center = (self.HALF_SCREEN_WIDTH, self.HALF_SCREEN_HEIGHT + 100)
+    
+    def summary_message3(self, summary3):
+        self.summaryMessage3 = summary3
+        self.textSummary3 = self.font.render(self.summaryMessage3, True, (0, 0, 255))
+        self.textSummary3_rect = self.text.get_rect()
+        self.textSummary3_rect.center = (self.HALF_SCREEN_WIDTH, self.HALF_SCREEN_HEIGHT + 130)
 

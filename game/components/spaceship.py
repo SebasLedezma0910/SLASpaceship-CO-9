@@ -1,7 +1,7 @@
 import random
 import pygame
 from pygame.sprite import Sprite
-from game.utils.constants import DEFAULT_TYPE, FONT_STYLE, SCREEN_WIDTH, SCREEN_HEIGHT, SPACESHIP
+from game.utils.constants import DEFAULT_TYPE, FONT_STYLE, SCREEN_WIDTH, SCREEN_HEIGHT, SPACESHIP, SPACESHIP_JET
 
 class Spaceship(Sprite):
     X_POS = (SCREEN_WIDTH // 2) - 30 
@@ -95,14 +95,14 @@ class Spaceship(Sprite):
                 self.image = pygame.transform.scale(SPACESHIP, (60, 50))
 
     def draw_power_up2(self, screen):
-        if self.power_up_type != DEFAULT_TYPE:
-            time_left = round((self.power_up_time_up - pygame.time.get_ticks()) / 1000, 2)
+        if self.power_up_type2 != DEFAULT_TYPE:
+            time_left = round((self.power_up_time_up2 - pygame.time.get_ticks()) / 1000, 2)
             if time_left >= 0:
                 font = pygame.font.Font(FONT_STYLE, 22)
-                text = font.render(f"{self.power_up_type.capitalize()} is enabled for {time_left}", True, (255, 0, 255))
+                text = font.render(f"{self.power_up_type2.capitalize()} is enabled for {time_left}", True, (255, 0, 255))
                 text_rect = text.get_rect()
                 text_rect.center = (150, 50)
                 screen.blit(text, text_rect)
             else:
-                self.power_up_type = DEFAULT_TYPE
+                self.power_up_type2 = DEFAULT_TYPE
                 self.image = pygame.transform.scale(SPACESHIP, (60, 50))

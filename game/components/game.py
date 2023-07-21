@@ -26,7 +26,7 @@ class Game:
         self.bullet_manager = Bullet_Manager()
         self.power_up_manager = PowerUpManager()
 
-        self.menu = Menu('Press any key to Enter...', ' ', ' ')
+        self.menu = Menu('Press any key to Enter...', ' ', ' ', ' ')
         self.score = 0
         self.death_count = 0 
         self.max_score = []
@@ -113,7 +113,7 @@ class Game:
         
         if self.max_score:
             max_score = max(self.max_score)
-            self.menu.update_message(f"Max Score: {max_score}")
+            self.menu.summary_message3(f"Max Score: {max_score}")
 
     def on_close(self):
         self.playing = False
